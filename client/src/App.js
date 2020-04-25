@@ -4,7 +4,10 @@ import './App.css';
 import { Button, Input, Tag } from 'antd';
 import { BulbOutlined } from '@ant-design/icons';
 import TaskTabs from './components/TaskTabs'
-import AddTask from './components/AddTask'
+
+
+// import AddTask from './components/AddTask'
+import AddTask from './components/containers/AddTask'
 
 
 const { CheckableTag } = Tag;
@@ -156,13 +159,15 @@ class App extends Component {
 
     return (
       <div className='App-Wrapper'>
-      <AddTask
+      {/* <AddTask
         handleSubmit={this._handleTaskSubmit}
         tags={this.state.tags}
         handleInput={this._handleInput}
         handleTag={this._handleTag}
         selectedTags={this.state.selectedTags}
-      />
+      /> */}
+
+      <AddTask />
       <TaskTabs 
         tags={this.state.tags}
         currentTasksList={this.state.currentTasksList}

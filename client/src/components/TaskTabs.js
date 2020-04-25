@@ -4,7 +4,6 @@ import { Tabs } from 'antd';
 const { TabPane } = Tabs;
 
 const TaskTabs = ({ tags, handleClickOfTab, currentTasksList }) => {
-  debugger
   return (
     <div className='Tabs-wrapper'>
       <Tabs 
