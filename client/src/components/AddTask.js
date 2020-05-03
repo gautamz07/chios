@@ -52,16 +52,38 @@ class AddTask extends React.Component {
   }
 
   componentDidMount() {
-    // console.log('PROPS ARE >>>>')
-    // console.log(this.props)
     this.props.getTags()
   }
 
   render() {
+
+    const { tags, selectedTags } = this.props
+
     return (
-      <div>
-        HI MELLOW !
-      </div>
+      <form className='Task-creator'>
+         <div className='form-wrapper'>
+           <Input 
+             placeholder="small size"  
+             prefix={<BulbOutlined />}
+             onChange={ e => this.props.handleInputTask(e.target.value) }
+           />
+           <Button 
+             type="primary"
+             onClick={ this.props.submitTask }
+             >Button</Button>
+
+           {
+             tags.map(tag => {
+               return <CheckableTag 
+                 key={tag.tag}
+                 checked={selectedTags.includes(tag.tag)} 
+                 onChange={ checked => this.props.handleTag(tag.tag , checked) }
+                //  color={generateColorClass()}
+               >{tag.tag}</CheckableTag>
+             })
+           }
+         </div>
+       </form>
     )
   }
 

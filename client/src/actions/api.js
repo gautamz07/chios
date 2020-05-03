@@ -12,29 +12,29 @@ export const getTags = () => async (dispatch , getState) => {
   }).then( ( resp ) => {
     return resp.json();
   }).catch(err => console.log( err )); 
-
-  // console.log(`tasks are ${tasks}`)
-  debugger
   dispatch(getAllTags(tags))
+}
 
-  // fetch( '/gettags' , {
-  //   method: "POST"
-  // }) 
-  // .then( ( resp ) => {
-  //     console.log(resp)
-  //     return resp.json();
-  // })
-  // .then( ( data ) => {
-  //     console.log(data)
-  //     let arr = [...data];  
-  //     this.setState({
-  //       ...this.state,
-  //       tags : arr
-  //     });
 
-  // })
-  // .catch( ( err ) => {
-  //     console.log( err );                
-  // }); 
+export const submitTask = () => async ( dispatch, getState ) => {
+
+    const { currentTask, selectedTags } = getState()
+    const tag = selectedTags.pop()
+
+    fetch('/insertIT', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify({
+        taskDetails: {
+          task: currentTask,
+          tag,
+        }
+      })
+    })
+    .then(res => res.json())
+    .then(res => console.log(res))
 
 }
+

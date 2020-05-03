@@ -1,4 +1,5 @@
 @import '~antd/dist/antd.css';
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300;0,400;0,600;0,700;1,400&display=swap');
 
 .App {
   text-align: center;
@@ -139,3 +140,20 @@
   border-color: transparent;
   border-bottom: 1px solid #40a9ff;
 } */
+
+
+.task-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  font-family: 'Open Sans', sans-serif;
+}
+
+.task-list > li {
+  margin-bottom: 0.25rem;
+  font-weight: 600;
+}
+
+.task-list > li > label {
+  margin-right: 0.5rem;
+}
