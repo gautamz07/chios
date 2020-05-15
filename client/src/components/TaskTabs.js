@@ -1,10 +1,9 @@
 import React, { Component } from 'react';
-import { Tabs } from 'antd';
+import { Tabs, Checkbox } from 'antd';
 
 const { TabPane } = Tabs;
 
 const TaskTabs = ({ tags, handleClickOfTab, currentTasksList }) => {
-  debugger
   return (
     <div className='Tabs-wrapper'>
       <Tabs 
@@ -15,8 +14,8 @@ const TaskTabs = ({ tags, handleClickOfTab, currentTasksList }) => {
         >
           {tags.map( ({tag , id}) => (
             <TabPane tab={tag} key={id}>
-              <ul>
-                {currentTasksList.map( elem => (<li>{ elem.description }</li>))}
+              <ul className='task-list'>
+                {currentTasksList.map( elem => (<li><Checkbox onChange={ () => alert() } />{ elem.description }</li>))}
               </ul>
             </TabPane>
           ))}
